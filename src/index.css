@@ -52,8 +52,21 @@ table {
 .navigation {
   float: left;
   width: 250px;
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.navigation li {
+  list-style: none;
+  padding: 5px;
+  align-self: center;
+}
+
+.navigation li a {
+  text-decoration: none;
 }
 
 .componentpage {
