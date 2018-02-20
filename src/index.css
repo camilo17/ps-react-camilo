@@ -24,6 +24,12 @@ table {
   border-collapse:collapse;
 }
 
+
+/* #root {
+  display: flex;
+  flex-direction: column;
+} */
+
 /* Documentation site component styles */
 .example {
   border: solid 1px #d3d3d3;
@@ -53,7 +59,7 @@ table {
   float: left;
   width: 250px;
   list-style: none;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,11 +68,25 @@ table {
 .navigation li {
   list-style: none;
   padding: 5px;
+  width: 100%;
   align-self: center;
+  display: flex;
+  justify-content: center;
 }
+
+.navigation li:target {
+  background-color: cyan;
+  color: rgb(168, 67, 168);
+}
+
 
 .navigation li a {
   text-decoration: none;
+}
+
+.navigation li a:hover {
+  color: purple;
+  
 }
 
 .componentpage {
