@@ -32,7 +32,20 @@ const PostCardText = styled.div`
     text-transform: uppercase;
     color: white;
     background-image: ${props => `url(${props.imageUrl})`};
+    background-position: bottom left;
+    background-size: 600px;
+    position: absolute;
+    left: 0;
+    padding-left: 27px;
+    bottom: 0;
+    padding-bottom: 15px;
+    right: 140px;
+    z-index: 2;
+    margin: 0
 
+`
+const Text = styled.p`
+  margin: 0;
 `
 
 
@@ -44,7 +57,8 @@ function PostCard (props) {
         return (
            <MainPostCard {...props}>
                 <PostCardText color={props.color} imageUrl={props.imageUrl}>
-
+                    <Text>{props.topText}</Text>
+                    <Text>{props.bottomText}</Text>
                 </PostCardText>
            </MainPostCard>
     

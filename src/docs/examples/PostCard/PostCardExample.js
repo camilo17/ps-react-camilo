@@ -11,6 +11,8 @@ export default function PostCardExample()  {
             height='400px'
             color='purple'
             imageUrl={imageUrl}
+            topText='lorem'
+            bottomText='ipsum dolor'
         />
     )
 }
