@@ -5,7 +5,8 @@ import PulseLoader from '../../../components/PulseLoader';
 export default function ()  {
     return (
         <PulseLoader
-            bgColor="violet"
+            bgColor="purple"
+            size="200px"
         />
     )
 }
