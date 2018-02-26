@@ -41,9 +41,10 @@ const PostCardText = styled.div`
     padding-bottom: 15px;
     right: 140px;
     z-index: 2;
-    margin: 0
+    margin: 0;
 
-`
+`;
+
 const Text = styled.p`
   margin: 0;
 `
