@@ -2,6 +2,7 @@ import React from 'react';
 import Navigation from './Navigation';
 import ComponentPage from './ComponentPage';
 import componentData from '../../config/componentData';
+import NavDrawer from '../internalComponents/NavDrawer';
 
 export default class Docs extends React.Component {
   constructor(props) {
@@ -23,8 +24,14 @@ export default class Docs extends React.Component {
 
     return (
       <div>
-        <Navigation components={componentData.map(component => component.name)} />
-        <ComponentPage component={component} />
+        <NavDrawer
+          navList={<Navigation components={componentData.map(component => component.name)} />}
+        >
+          <ComponentPage component={component} />
+        </NavDrawer>
+        
+        
+       
       </div>
     )
   }
