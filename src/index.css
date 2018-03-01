@@ -65,7 +65,7 @@ table {
   justify-content: center;
 }
 
-.navigation li {
+/* .navigation li {
   list-style: none;
   padding: 5px;
   width: 100%;
@@ -87,8 +87,8 @@ table {
 .navigation li a:hover {
   color: purple;
   
-}
+} */
 
 .componentpage {
-  margin-left: 275px;
+  margin-left: 75px;
 }

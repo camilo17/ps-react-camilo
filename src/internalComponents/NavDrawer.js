@@ -12,23 +12,7 @@ import { withStyles } from 'material-ui/styles';
 import MenuIcon from 'material-ui-icons/Menu'
 import Icon from 'material-ui';
 
-//     return (
-//         <AppBar
-//         position="static"
-//         color="primary"
-//         >
-//          <ToolBar>
-//              <h1 style={{flex: 1}}>Component Library</h1>
-//              <IconButton color="default" style={{alignSelf: 'center'}}>
-//                  <GitHubIcon/>
-//              </IconButton>       
-//          </ToolBar>     
-      
-      
-//         </AppBar>
-
-//     )
-// }
+    
 
 
 
@@ -151,7 +135,7 @@ class NavDrawer extends React.Component {
           </IconButton>
         </div>
         
-        <List>
+        <List component="ul">
           {this.props.navList}
         </List>
         
@@ -205,7 +189,7 @@ class NavDrawer extends React.Component {
             <div className={classes.drawerHeader} />
             {this.props.children}
           </main>
-          {after}
+          
         </div>
       </div>
     );

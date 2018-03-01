@@ -1,34 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withStyles } from 'material-ui/styles';
+import Table, { TableBody, TableCell, TableHead, TableRow } from 'material-ui/Table';
+import Paper from 'material-ui/Paper';
+
 
 const Props = ({props}) => {
   return (
-    <table className="props">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Description</th>
-          <th>Type</th>
-          <th>Default</th>
-          <th>Required</th>
-        </tr>
-      </thead>
-      <tbody>
+  <Paper>  
+    <Table>
+      <TableHead>
+        <TableRow>
+          <TableCell>Name</TableCell>
+          <TableCell>Description</TableCell>
+          <TableCell>Type</TableCell>
+          <TableCell>Default</TableCell>
+          <TableCell>Required</TableCell>
+        </TableRow>
+      </TableHead>
+
+      <TableBody>
       {
         Object.keys(props).map(key => {
           return (
-            <tr key={key}>
-              <td>{key}</td>
-              <td>{props[key].description}</td>
-              <td>{props[key].type.name}</td>
-              <td>{props[key].defaultValue && props[key].defaultValue.value}</td>
-              <td>{props[key].required && "X"}</td>
-            </tr>
+            <TableRow key={key}>
+              <TableCell>{key}</TableCell>
+              <TableCell>{props[key].description}</TableCell>
+              <TableCell>{props[key].type.name}</TableCell>
+              <TableCell>{props[key].defaultValue && props[key].defaultValue.value}</TableCell>
+              <TableCell>{props[key].required && "X"}</TableCell>
+            </TableRow>
           );
         })
       }
-      </tbody>
-    </table>
+      </TableBody>
+    </Table>
+  </Paper>  
   )
 }
 

@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
+import {  ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 
 const Navigation = ({components}) => {
   return (
-    <ul className="navigation">
+
+    <React.Fragment>
       {
         components.map( name => {
           return (
-            <ListItem key={name}>
-              <a href={`#${name}`}>{name}</a>
+            <ListItem key={name} component="li" divider style={{justifyContent: 'center'}}>
+              <a href={`#${name}`} style={{textDecoration: 'none'}}>{name}</a>
             </ListItem>
           )
         })
       }
-    </ul>
+    </React.Fragment>
   )
 }
 
