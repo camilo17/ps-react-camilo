@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import List, { ListItem, ListItemSecondaryAction, ListItemText } from 'material-ui/List';
 
 const Navigation = ({components}) => {
   return (
@@ -7,9 +8,9 @@ const Navigation = ({components}) => {
       {
         components.map( name => {
           return (
-            <li key={name}>
+            <ListItem key={name}>
               <a href={`#${name}`}>{name}</a>
-            </li>
+            </ListItem>
           )
         })
       }

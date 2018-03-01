@@ -10,6 +10,7 @@ import Typography from 'material-ui/Typography';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import MenuIcon from 'material-ui-icons/Menu'
+import Icon from 'material-ui';
 
 //     return (
 //         <AppBar
@@ -37,11 +38,12 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    
   },
   appFrame: {
-    height: 430,
+    height: '100%',
     zIndex: 1,
-    overflow: 'hidden',
+    overflow: 'visible',
     position: 'relative',
     display: 'flex',
     width: '100%',
@@ -86,7 +88,7 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    height: '100%',
+    height: '100vh',
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
     transition: theme.transitions.create('margin', {
@@ -128,11 +130,7 @@ class NavDrawer extends React.Component {
     this.setState({ open: false });
   };
 
-  handleChangeAnchor = event => {
-    this.setState({
-      anchor: event.target.value,
-    });
-  };
+  
 
   render() {
     const { classes, theme } = this.props;
@@ -189,9 +187,12 @@ class NavDrawer extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="title" color="inherit" noWrap>
-                Persistent drawer
+              <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
+                Simple Component Library
               </Typography>
+              <IconButton>
+                <GitHubIcon/>
+              </IconButton>  
             </Toolbar>
           </AppBar>
           {before}
