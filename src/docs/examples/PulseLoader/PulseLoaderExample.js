@@ -6,7 +6,7 @@ export default function ()  {
     return (
         <PulseLoader
             bgColor="purple"
-            size="200px"
+            size="100px"
         />
     )
 }

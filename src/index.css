@@ -12,29 +12,19 @@ a, a:visited {
   clear: both;
 }
 
-td {
-  border-top: solid 1px #d3d3d3;
-}
-
-td, th {
-  padding: 10px;
-}
-
-table {
-  border-collapse:collapse;
-}
 
 
-/* #root {
+
+/* #root { 
   display: flex;
   flex-direction: column;
 } */
 
 /* Documentation site component styles */
 .example {
-  border: solid 1px #d3d3d3;
-  padding: 16px;
-  margin-bottom: 16px;
+  
+  padding: 16px 16px;
+  margin-bottom: 25px;
   background-color: #f4f6f9;
 }
 

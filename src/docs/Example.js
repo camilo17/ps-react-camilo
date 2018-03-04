@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import CodeExample from './CodeExample';
 import Paper from 'material-ui/Paper';
+import Button from 'material-ui/Button';
 
 class Example extends React.Component {
   constructor(props) {
@@ -25,13 +26,14 @@ class Example extends React.Component {
       <Paper className="example">
         {description && <h4>{description}</h4> }
 
-        <ExampleComponent />
-
-        <p>
-          <a href="" onClick={this.toggleCode}>
+        <div style={{padding: '10px 10px', marginBottom: '15px'}}>
+          <ExampleComponent />
+        </div>
+        <Button color="primary" variant="raised">
+          <a href="" onClick={this.toggleCode} style={{textDecoration: 'none', color: 'white'}}>
             {showCode ? "Hide" : "Show"} Code
           </a>
-        </p>
+        </Button>
 
         {showCode && <CodeExample>{code}</CodeExample>}
       </Paper>

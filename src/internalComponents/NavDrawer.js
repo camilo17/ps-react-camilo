@@ -10,7 +10,7 @@ import Typography from 'material-ui/Typography';
 import classNames from 'classnames';
 import { withStyles } from 'material-ui/styles';
 import MenuIcon from 'material-ui-icons/Menu'
-import Icon from 'material-ui';
+
 
     
 
@@ -22,6 +22,7 @@ const drawerWidth = 240;
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    width: '100%'
     
   },
   appFrame: {
@@ -33,6 +34,7 @@ const styles = theme => ({
     width: '100%',
   },
   appBar: {
+    width: '100%',
     position: 'absolute',
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
@@ -62,6 +64,7 @@ const styles = theme => ({
   drawerPaper: {
     position: 'relative',
     width: drawerWidth,
+    background: 'ecf0f1'
   },
   drawerHeader: {
     display: 'flex',
@@ -125,6 +128,7 @@ class NavDrawer extends React.Component {
         variant="persistent"
         anchor={anchor}
         open={open}
+        
         classes={{
           paper: classes.drawerPaper,
         }}
@@ -143,14 +147,7 @@ class NavDrawer extends React.Component {
       </Drawer>
     );
 
-    let before = null;
-    let after = null;
-
-    if (anchor === 'left') {
-      before = drawer;
-    } else {
-      after = drawer;
-    }
+    
 
     return (
       <div className={classes.root}>
@@ -174,12 +171,12 @@ class NavDrawer extends React.Component {
               <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
                 Simple Component Library
               </Typography>
-              <IconButton>
+              <IconButton style={{marginRight: '15px'}}>
                 <GitHubIcon/>
               </IconButton>  
             </Toolbar>
           </AppBar>
-          {before}
+          {drawer}
           <main
             className={classNames(classes.content, classes[`content-${anchor}`], {
               [classes.contentShift]: open,

@@ -52,7 +52,7 @@ const Text = styled.p`
 
 
 function PostCard (props) {
-    
+   
 
     
         return (

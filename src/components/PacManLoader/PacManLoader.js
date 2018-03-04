@@ -73,7 +73,7 @@ const Track = styled.div`
     height: 8px;
     top: -8px;
 
-    background-color: #f3f6f9;
+    background-color: #ffffff;
     transform-origin: right center;
     animation: ${matte} 5s linear infinite;
 
@@ -131,5 +131,10 @@ class PacManLoader extends React.Component {
     }
 }
 
+
+PacManLoader.propTypes = {
+  PacManColor: PropTypes.string.isRequired,
+  trackColor: PropTypes.string.isRequired
+}
 
 export default PacManLoader;
