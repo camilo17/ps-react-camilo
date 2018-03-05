@@ -17,11 +17,30 @@ const Btn = styled.button`
     }
 `
 
+
+const Link = styled.a`
+    text-decoration: none;
+    
+    &:link,&:visited {
+        color: green;
+    }
+`
+
 class Button extends React.Component {
+
+    handleHref() {
+        if(this.props.href){
+            return (
+                <Link href={this.props.href}>{this.props.children}</Link>
+            )
+        } else {
+            return (this.props.children);
+        }
+    }
     render() {
         return (
-            <Btn href="#">
-                {this.props.children}
+            <Btn>
+                {this.handleHref()}
             </Btn>    
         )
     }
