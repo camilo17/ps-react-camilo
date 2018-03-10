@@ -42,7 +42,7 @@ class Button extends React.Component {
     handleHref() {
         if(this.props.href){
             return (
-                <Link href={this.props.href}{...this.props}>{this.props.children}</Link>
+                <Link target="_blank" href={this.props.href}{...this.props}>{this.props.children}</Link>
             )
         } else {
             return (
