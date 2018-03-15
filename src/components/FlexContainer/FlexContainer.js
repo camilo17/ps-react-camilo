@@ -28,14 +28,16 @@ class FlexContainer extends React.Component {
 FlexContainer.defaultProps = {
     direction: 'row',
     wrap: 'nowrap',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-start',
+    alignItems: 'stretch'
 }
 
 
 FlexContainer.propTypes = {
     direction: PropTypes.oneOf(['row', 'row-reversed', 'column', 'column-reverse']),
     wrap: PropTypes.oneOf(['nowrap', 'wrap', 'wrap-reverse']),
-    justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly'])
+    justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'space-between', 'space-around', 'space-evenly']),
+    alignItems: PropTypes.oneOf(['flex-start', 'flex-end', 'center', 'stretch', 'baseline'])
 }
 
 

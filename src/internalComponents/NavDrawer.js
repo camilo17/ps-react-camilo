@@ -120,7 +120,7 @@ class NavDrawer extends React.Component {
   
 
   render() {
-    const { classes, theme } = this.props;
+    const { classes } = this.props;
     const { anchor, open } = this.state;
 
     const drawer = (
@@ -169,10 +169,12 @@ class NavDrawer extends React.Component {
                 <MenuIcon />
               </IconButton>
               <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
-                Simple Component Library
+                React Ultra Instinct
               </Typography>
               <IconButton style={{marginRight: '15px'}}>
-                <GitHubIcon/>
+               
+                  <a style={{color: 'white'}} href="https://camilo17.github.io/react-ultra-instinct/"><GitHubIcon/></a>
+                
               </IconButton>  
             </Toolbar>
           </AppBar>

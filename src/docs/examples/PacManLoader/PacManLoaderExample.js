@@ -1,5 +1,5 @@
 import React from 'react';
-import PacManLoader from '../../../components/PacManLoader';
+import PacManLoader from 'react-ultra-instinct/PacManLoader';
 
 
 

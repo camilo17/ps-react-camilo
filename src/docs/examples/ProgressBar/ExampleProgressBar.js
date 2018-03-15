@@ -1,5 +1,5 @@
 import React from 'react';
-import ProgressBar from '../../../components/ProgressBar';
+import ProgressBar from 'react-ultra-instinct/ProgressBar';
 
 export default function ExampleProgressBar() {
     return (<ProgressBar  

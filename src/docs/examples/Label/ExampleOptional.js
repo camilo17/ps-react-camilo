@@ -1,5 +1,5 @@
 import React from 'react';
-import Label from 'ps-react/Label';
+import Label from 'react-ultra-instinct/Label';
 
 /** Optional label */
 export default function ExampleOptional() {

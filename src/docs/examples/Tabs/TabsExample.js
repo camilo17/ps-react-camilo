@@ -1,6 +1,5 @@
 import React from 'react';
-import {Tabs, TabList, Tab, TabPanel, TabPanels} from '../../../components/Tabs';
-
+import {Tabs, TabList, Tab, TabPanel, TabPanels} from 'react-ultra-instinct/Tabs';
 
 export default () => {
     return (

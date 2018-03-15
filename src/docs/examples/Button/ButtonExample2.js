@@ -1,6 +1,5 @@
 import React from 'react';
-import Button from '../../../components/Button';
-
+import Button from 'react-ultra-instinct/Button';
 
 
  export default () => {

@@ -26,10 +26,11 @@ class Example extends React.Component {
       <Paper className="example">
         {description && <h4>{description}</h4> }
 
-        <div style={{padding: '10px 10px', marginBottom: '15px'}}>
+        <div style={{padding: '15px', marginBottom: '20px'}}>
           <ExampleComponent />
         </div>
-        <Button color="primary" variant="raised">
+        
+        <Button color="primary" variant="raised" style={{marginTop: '10px'}}>
           <a href="" onClick={this.toggleCode} style={{textDecoration: 'none', color: 'white'}}>
             {showCode ? "Hide" : "Show"} Code
           </a>

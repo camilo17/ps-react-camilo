@@ -1,12 +1,12 @@
 import React from 'react';
-import PulseLoader from '../../../components/PulseLoader';
+import PulseLoader from 'react-ultra-instinct/PulseLoader';
 
 
 export default function ()  {
     return (
         <PulseLoader
             bgColor="purple"
-            size="100px"
+            size="50px"
         />
     )
 }
