@@ -1,5 +1,5 @@
 {
-  "name": "ps-react-camilo",
+  "name": "react-ultra-instinct",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -12,7 +12,7 @@
     "styled-components": "^3.1.6",
     "styled-is": "^1.1.2"
   },
-  "homepage": "http://camilo17.github.io/react-ultra-instinct/",
+  "homepage": "https://datdevboi.github.io/react-ultra-instinct/",
   "scripts": {
     "prestart": "npm run gen:docs",
     "start": "npm-run-all --parallel start:docs gen:docs-watch",
