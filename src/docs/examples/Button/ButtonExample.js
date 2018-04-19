@@ -1,18 +1,6 @@
-import React from 'react';
-import Button from 'react-ultra-instinct/Button';
+import React from "react";
+import Button from "react-ultra-instinct/Button";
 
-export default () =>{
-    return (
-        <Button href="https://youtube.com" 
-        borderColor="palevioletred"
-        color="palevioletred"
-        transparent
-        >
-            Link
-        </Button>    
-    )
-}
-
- 
-
-
+export default () => {
+  return <Button>Link</Button>;
+};
