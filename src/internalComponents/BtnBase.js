@@ -1,22 +1,20 @@
 import styled from "styled-components";
 
-const BaseBtn = styled.a`
+const BaseBtn = styled.button`
   cursor: pointer;
+
   display: block;
   font-size: 16px;
   font-weight: 400;
-  line-height: 45px;
-  margin: 0 auto 2em;
+  line-height: 40px;
   max-width: 160px;
   position: relative;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
+  border: none;
+  vertical-align: middle;
 
   width: 100%;
-  &:hover {
-    text-decoration: none;
-  }
 `;
 
 export default BaseBtn;

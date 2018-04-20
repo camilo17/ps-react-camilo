@@ -1,15 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { darken } from "polished";
+import { darken, lighten } from "polished";
 import BaseBtn from "./../../internalComponents/BtnBase";
+import is from "styled-is";
 
 const Btn1 = BaseBtn.extend`
-  color: black;
-  background: ${darken(0.1, "#fff")};
+  color: white;
+  background: ${props => (props.disabled ? "grey" : props.color)};
   font-weight: 100;
 
   svg {
-    height: 45px;
+    height: 100%;
     left: 0;
     position: absolute;
     top: 0;
@@ -18,31 +19,37 @@ const Btn1 = BaseBtn.extend`
 
   rect {
     fill: none;
-    stroke: ${props => props.borderStroke};
-    stroke-width: 3;
+    stroke: ${props => (props.disabled ? "transparent" : props.strokeColor)};
+    stroke-width: 5;
     stroke-dasharray: 422, 0;
   }
 
   &:hover {
-    background: white;
-    font-weight: 900;
-    letter-spacing: 1px;
+    background: ${props =>
+      props.disabled ? "grey" : darken(0.1, props.color)};
+    font-weight: 500;
 
     & svg rect {
-      stroke-width: 6;
+      stroke-width: 7;
       stroke-dasharray: 15, 310;
-      stroke-dashoffset: 48;
+      stroke-dashoffset: 56;
       transition: all 2.35s cubic-bezier(0.19, 1, 0.22, 1);
     }
   }
+
+  ${is("disabled")`
+    cursor: auto;
+    opacity: .5;
+    
+  `};
 `;
 
 class Button extends React.Component {
   handleHref = () => {};
   render() {
-    const { children } = this.props;
+    const { children, ...other } = this.props;
     return (
-      <Btn1 {...this.props}>
+      <Btn1 {...other}>
         <svg>
           <rect x="0" y="0" fill="none" width="100%" height="100%" />
         </svg>
@@ -53,13 +60,19 @@ class Button extends React.Component {
 }
 
 Button.defaultProps = {
-  borderStroke: "red"
+  color: "purple",
+  strokeColor: "pink",
+  disabled: false
 };
 
 Button.propTypes = {
-  borderStroke: PropTypes.string,
-  bgColor: PropTypes.string,
-  textColor: PropTypes.string,
+  /** Blue | Red | Purple */
+  color: PropTypes.oneOf(["blue", "red", "purple"]),
+
+  /** Color of the stroke dash */
+  strokeColor: PropTypes.string,
+
+  /** Make button disabled */
   disabled: PropTypes.bool
 };
 

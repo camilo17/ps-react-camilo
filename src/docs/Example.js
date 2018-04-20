@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import CodeExample from './CodeExample';
-import Paper from 'material-ui/Paper';
-import Button from 'material-ui/Button';
+import React from "react";
+import PropTypes from "prop-types";
+import CodeExample from "./CodeExample";
+import Paper from "material-ui/Paper";
+import Button from "material-ui/Button";
 
 class Example extends React.Component {
   constructor(props) {
@@ -13,38 +13,44 @@ class Example extends React.Component {
   toggleCode = event => {
     event.preventDefault();
     this.setState(prevState => {
-      return {showCode: !prevState.showCode};
+      return { showCode: !prevState.showCode };
     });
-  }
+  };
 
   render() {
-    const {showCode} = this.state;
-    const {code, description, name} = this.props.example;
+    const { showCode } = this.state;
+    const { code, description, name } = this.props.example;
     // Must use CommonJS require to dynamically require because ES Modules must be statically analyzable.
-    const ExampleComponent = require(`./examples/${this.props.componentName}/${name}`).default;
+    const ExampleComponent = require(`./examples/${
+      this.props.componentName
+    }/${name}`).default;
     return (
       <Paper className="example">
-        {description && <h4>{description}</h4> }
+        {description && <h4>{description}</h4>}
 
-        <div style={{padding: '15px', marginBottom: '20px'}}>
+        <div style={{ padding: "15px", marginBottom: "20px" }}>
           <ExampleComponent />
         </div>
-        
-        <Button color="primary" variant="raised" style={{marginTop: '10px'}}>
-          <a href="" onClick={this.toggleCode} style={{textDecoration: 'none', color: 'white'}}>
+
+        <Button color="primary" variant="raised" style={{ marginTop: "10px" }}>
+          <a
+            href=""
+            onClick={this.toggleCode}
+            style={{ textDecoration: "none", color: "white" }}
+          >
             {showCode ? "Hide" : "Show"} Code
           </a>
         </Button>
 
         {showCode && <CodeExample>{code}</CodeExample>}
       </Paper>
-    )
+    );
   }
 }
 
 Example.propTypes = {
   example: PropTypes.object.isRequired,
   componentName: PropTypes.string.isRequired
-}
+};
 
 export default Example;
