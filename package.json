@@ -27,7 +27,7 @@
     "build:lib": "npm run build:commonjs",
     "prepublish": "npm run build:lib",
     "build:commonjs":
-      "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib --ignore spec.js"
+      "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib"
   },
   "jest": {
     "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
