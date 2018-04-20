@@ -4,8 +4,8 @@ import { darken } from "polished";
 import BaseBtn from "./../../internalComponents/BtnBase";
 
 const Btn1 = BaseBtn.extend`
-  color: #fff;
-  background: ${darken(0.15, "white")};
+  color: black;
+  background: ${darken(0.1, "#fff")};
   font-weight: 100;
 
   svg {
@@ -18,13 +18,13 @@ const Btn1 = BaseBtn.extend`
 
   rect {
     fill: none;
-    stroke: palevioletred;
+    stroke: ${props => props.borderStroke};
     stroke-width: 3;
     stroke-dasharray: 422, 0;
   }
 
   &:hover {
-    background: darkgray;
+    background: white;
     font-weight: 900;
     letter-spacing: 1px;
 
@@ -52,11 +52,14 @@ class Button extends React.Component {
   }
 }
 
-Button.defaultProps = {};
+Button.defaultProps = {
+  borderStroke: "red"
+};
 
 Button.propTypes = {
   borderStroke: PropTypes.string,
-  color: PropTypes.string,
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string,
   disabled: PropTypes.bool
 };
 
