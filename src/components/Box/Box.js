@@ -13,7 +13,8 @@ const Flex = styled.div`
 
 class Box extends React.Component {
   render() {
-    return <Flex {...this.props}>{this.props.children}</Flex>;
+    const { children, ...other } = this.props;
+    return <Flex {...other}>{children}</Flex>;
   }
 }
 

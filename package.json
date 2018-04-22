@@ -26,8 +26,7 @@
     "prebuild:lib": "rimraf lib",
     "build:lib": "npm run build:commonjs",
     "prepublish": "npm run build:lib",
-    "build:commonjs":
-      "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib"
+    "build:commonjs": "cross-env NODE_ENV=production babel ./src/components --out-dir ./lib"
   },
   "jest": {
     "collectCoverageFrom": ["src/**/*.{js,jsx,mjs}"],
@@ -41,8 +40,7 @@
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)":
-        "<rootDir>/config/jest/fileTransform.js"
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
     },
     "transformIgnorePatterns": ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"],
     "moduleNameMapper": {
@@ -59,16 +57,7 @@
     ]
   },
   "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "modules": "commonjs"
-        }
-      ],
-
-      "react-app"
-    ]
+    "presets": ["react-app"]
   },
   "eslintConfig": {
     "extends": "react-app"
