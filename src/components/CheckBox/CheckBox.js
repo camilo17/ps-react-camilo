@@ -1,10 +1,16 @@
 import React, { Component } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
 const Check = styled.input.attrs({
   type: "checkbox"
-})``;
+})`
+  ${props =>
+    props.hide &&
+    css`
+      opacity: 0;
+    `};
+`;
 class CheckBox extends Component {
   render() {
     return <Check />;
@@ -13,13 +19,11 @@ class CheckBox extends Component {
 
 CheckBox.propTypes = {
   size: PropTypes.oneOf(["small", "medium", "large"]),
-  checked: PropTypes.bool.isRequired,
-  id: PropTypes.bool.isRequired,
+  checked: PropTypes.bool,
+  id: PropTypes.bool,
   name: PropTypes.string
 };
 
-CheckBox.defaultProps = {
-  size: "medium"
-};
+CheckBox.defaultProps = {};
 
 export default CheckBox;

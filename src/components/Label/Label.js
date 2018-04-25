@@ -1,13 +1,14 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 /** Label with required field display, htmlFor, and block styling */
-function Label({htmlFor, label, required}) {
+function Label({ htmlFor, label, required }) {
   return (
-    <label style={{display: 'block'}} htmlFor={htmlFor}>
-      {label} { required && <span style={{color: 'red'}}> *</span> }
+    <label style={{ display: "block" }} htmlFor={htmlFor}>
+      {label}
     </label>
-  )
+  );
 }
 
 Label.propTypes = {
