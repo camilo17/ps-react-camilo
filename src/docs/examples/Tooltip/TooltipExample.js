@@ -1,6 +1,5 @@
 import React from "react";
 import Tooltip from "react-ultra-instinct/Tooltip";
-import { buttons } from "polished";
 
 class TooltipExample extends React.Component {
   constructor(props) {
@@ -14,16 +13,13 @@ class TooltipExample extends React.Component {
 
   render() {
     return (
-      <div>
-        <button
-          ref={this.myRef}
-          onClick={() => this.setState({ display: !this.state.display })}
-        >
+      <div ref={this.myRef}>
+        <button onClick={() => this.setState({ display: !this.state.display })}>
           Click me
         </button>
 
         {this.state.display && (
-          <Tooltip anchor={this.myRef}>
+          <Tooltip anchor={this.myRef} positionRelativeToAnchor>
             <p>Hello there</p>
           </Tooltip>
         )}
