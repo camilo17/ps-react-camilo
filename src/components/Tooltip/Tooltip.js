@@ -20,8 +20,10 @@ class Tooltip extends React.Component {
   };
 
   componentDidMount() {
-    this.updateTriggerRect(this.props);
     console.log(this.props.anchor);
+
+    // this.updateTriggerRect(this.props);
+    // console.log(this.props.anchor);
   }
 
   componentWillReceiveProps(nextProps) {
