@@ -32,14 +32,13 @@ class Example extends React.Component {
           <ExampleComponent />
         </div>
 
-        <Button color="primary" variant="raised" style={{ marginTop: "10px" }}>
-          <a
-            href=""
-            onClick={this.toggleCode}
-            style={{ textDecoration: "none", color: "white" }}
-          >
-            {showCode ? "Hide" : "Show"} Code
-          </a>
+        <Button
+          onClick={this.toggleCode}
+          color="primary"
+          variant="raised"
+          style={{ marginTop: "10px" }}
+        >
+          {showCode ? "Hide" : "Show"} Code
         </Button>
 
         {showCode && <CodeExample>{code}</CodeExample>}
