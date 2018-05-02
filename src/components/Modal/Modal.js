@@ -29,29 +29,56 @@ const ModalContent = styled.div`
   position: absolute;
 `;
 
+class ModalContainer extends React.Component {
+  handleCloseClick = e => {
+    e.preventDefault();
+    if (e.target.id !== "content") {
+      this.props.handleClose();
+    }
+  };
+
+  componentDidMount() {
+    document.addEventListener("click", this.handleCloseClick);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("click", this.handleCloseClick);
+  }
+  render() {
+    return (
+      <ModalExample open={this.props.open}>{this.props.children}</ModalExample>
+    );
+  }
+}
+
 class Modal extends React.Component {
   state = {
     open: false
   };
 
   handleOpen = () => {
-    this.setState({ open: !this.state.open });
-    console.log(this.state.open);
+    this.setState({ open: true });
   };
 
-  componentDidMount() {
-    // window.addEventListener("click", e => {
-    //   console.log(e.target);
-    // });
-  }
+  handleClose = () => {
+    this.setState({ open: false });
+  };
+
   render() {
+    const triggerChild = React.Children.map(this.props.trigger, child => {
+      return React.cloneElement(child, {
+        onClick: this.handleOpen
+      });
+    });
     return (
       <div>
-        <ModalExample open={this.state.open}>
-          <ModalContent>Hello There</ModalContent>
-        </ModalExample>
+        {this.state.open && (
+          <ModalContainer open={this.state.open} handleClose={this.handleClose}>
+            <ModalContent id="content">Hello There</ModalContent>
+          </ModalContainer>
+        )}
 
-        <button onClick={this.handleOpen}>Show Modal!</button>
+        {triggerChild}
       </div>
     );
   }
