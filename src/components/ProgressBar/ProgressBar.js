@@ -1,26 +1,23 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
+const ProgressContainer = styled.div`
+  width: 100%;
+  background-color: grey;
+`;
+
+const Bar = styled.div`
+  width: ${props => props.progress + "%"};
+  height: 30px;
+  background-color: ${props => (props.progress >= 100 ? "green" : "blue")};
+`;
 class ProgressBar extends React.Component {
-  getColor = (percent) => {
-    if (this.props.percent === 100) return 'green';
-    return this.props.percent > 50 ? 'lightgreen' : 'red';
-  }
-
-  getWidthAsPercentOfTotalWidth = () => {
-    return parseInt(this.props.width * (this.props.percent / 100), 10);
-  }
-
   render() {
-    const {percent, width, height} = this.props;
     return (
-      <div style={{border: 'solid 1px lightgray', width: width}}>
-        <div style={{
-          width: this.getWidthAsPercentOfTotalWidth(),
-          height,
-          backgroundColor: this.getColor(percent)
-        }} />
-      </div>
+      <ProgressContainer>
+        <Bar progress={5} />
+      </ProgressContainer>
     );
   }
 }
