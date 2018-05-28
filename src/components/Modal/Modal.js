@@ -23,12 +23,13 @@ const ModalExample = styled.div`
 const ModalContent = styled.div`
   background-color: #fefefe;
   margin: auto;
-  padding: 20px;
+  padding: 15px 15px;
   border: 1px solid #888;
   width: 80%;
   position: absolute;
-  display: flex;
-  flex-direction: column;
+  height: 500px;
+  /* display: flex;
+  flex-direction: column; */
 `;
 
 class ModalContainer extends React.Component {
@@ -57,35 +58,22 @@ class ModalContainer extends React.Component {
 }
 
 class Modal extends React.Component {
-  state = {
-    open: false
-  };
-
-  handleOpen = () => {
-    this.setState({
-      open: true
-    });
-  };
-
-  handleClose = () => {
-    this.setState({
-      open: false
-    });
-  };
-
   static Header = props => <h1>{props.children}</h1>;
 
   render() {
     const triggerChild = React.Children.map(this.props.trigger, child => {
       return React.cloneElement(child, {
-        onClick: this.handleOpen
+        onClick: this.props.handleOpenModal
       });
     });
     return (
       <div>
         {" "}
-        {this.state.open && (
-          <ModalContainer open={this.state.open} handleClose={this.handleClose}>
+        {this.props.open && (
+          <ModalContainer
+            open={this.props.open}
+            handleClose={this.props.handleCloseModal}
+          >
             <ModalContent id="content">{this.props.children}</ModalContent>{" "}
           </ModalContainer>
         )}
