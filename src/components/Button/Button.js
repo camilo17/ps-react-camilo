@@ -1,42 +1,35 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+import { darken } from "polished";
+const Btn = styled.button`
+  background: ${props => props.color};
 
-// class Button extends React.Component {
-//   handleButton = () => {};
+  width: 100px;
+  height: auto;
+  border: none;
+  border-radius: 2px;
+  padding: 6px 6px;
+  color: white;
 
-//   render() {
-//     return null;
-//   }
-// }
-
-// Button.defaultProps = {
-//   color: "blue",
-//   strokeColor: "pink",
-//   disabled: false,
-//   btn1: false,
-//   btn2: true
-// };
-
-// Button.propTypes = {
-//   /** Blue | Red | Purple */
-//   color: PropTypes.oneOf(["blue", "red", "purple"]),
-
-//   /** Color of the stroke dash */
-//   strokeColor: PropTypes.string,
-
-//   /** Make button disabled */
-//   disabled: PropTypes.bool,
-//   /** To pick btn1 */
-//   btn1: PropTypes.bool,
-//   btn2: PropTypes.bool
-// };
-
-function Button() {
-  return <div>Under construction</div>;
+  &:hover {
+    background: ${props => darken(0.07)(props.color)};
+  }
+`;
+class Button extends React.Component {
+  render() {
+    const { color } = this.props;
+    return <Btn color={color}>{this.props.children}</Btn>;
+  }
 }
 
+Button.defaultProps = {
+  color: "purple"
+};
+
 Button.propTypes = {
-  color: PropTypes.string
+  /** Blue | Red | Purple */
+  color: PropTypes.oneOf(["blue", "red", "purple"])
 };
 
 export default Button;
