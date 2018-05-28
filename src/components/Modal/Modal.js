@@ -27,9 +27,7 @@ const ModalContent = styled.div`
   border: 1px solid #888;
   width: 80%;
   position: absolute;
-  height: 500px;
-  /* display: flex;
-  flex-direction: column; */
+  height: auto;
 `;
 
 class ModalContainer extends React.Component {

@@ -28,6 +28,7 @@ export default class ModalExample extends React.Component {
       >
         <h1>Hello</h1>
         <Divider />
+        <h2>Hey yall</h2>
       </Modal>
     );
   }
