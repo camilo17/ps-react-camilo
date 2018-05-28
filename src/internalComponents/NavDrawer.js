@@ -1,112 +1,105 @@
-import React from 'react';
-import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import IconButton from 'material-ui/IconButton';
-import GitHubIcon from 'react-icons/lib/fa/github';
-import Drawer from 'material-ui/Drawer';
-import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
-import List from 'material-ui/List';
-import Typography from 'material-ui/Typography';
-import classNames from 'classnames';
-import { withStyles } from 'material-ui/styles';
-import MenuIcon from 'material-ui-icons/Menu'
-
-
-    
-
-
-
+import React from "react";
+import AppBar from "material-ui/AppBar";
+import Toolbar from "material-ui/Toolbar";
+import IconButton from "material-ui/IconButton";
+import GitHubIcon from "react-icons/lib/fa/github";
+import Drawer from "material-ui/Drawer";
+import ChevronLeftIcon from "material-ui-icons/ChevronLeft";
+import List from "material-ui/List";
+import Typography from "material-ui/Typography";
+import classNames from "classnames";
+import { withStyles } from "material-ui/styles";
+import MenuIcon from "material-ui-icons/Menu";
 
 const drawerWidth = 240;
 
 const styles = theme => ({
   root: {
     flexGrow: 1,
-    width: '100%'
-    
+    width: "100%"
   },
   appFrame: {
-    height: '100%',
+    height: "100%",
     zIndex: 1,
-    overflow: 'visible',
-    position: 'relative',
-    display: 'flex',
-    width: '100%',
+    overflow: "visible",
+    position: "relative",
+    display: "flex",
+    width: "100%"
   },
   appBar: {
-    width: '100%',
-    position: 'absolute',
-    transition: theme.transitions.create(['margin', 'width'], {
+    width: "100%",
+    position: "absolute",
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+      duration: theme.transitions.duration.leavingScreen
+    })
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['margin', 'width'], {
+    transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
-  'appBarShift-left': {
-    marginLeft: drawerWidth,
+  "appBarShift-left": {
+    marginLeft: drawerWidth
   },
-  'appBarShift-right': {
-    marginRight: drawerWidth,
+  "appBarShift-right": {
+    marginRight: drawerWidth
   },
   menuButton: {
     marginLeft: 12,
-    marginRight: 20,
+    marginRight: 20
   },
   hide: {
-    display: 'none',
+    display: "none"
   },
   drawerPaper: {
-    position: 'relative',
+    position: "relative",
     width: drawerWidth,
-    background: 'ecf0f1'
+    background: "ecf0f1"
   },
   drawerHeader: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: '0 8px',
-    ...theme.mixins.toolbar,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    padding: "0 8px",
+    ...theme.mixins.toolbar
   },
   content: {
     flexGrow: 1,
-    height: '100vh',
+    height: "100vh",
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
+      duration: theme.transitions.duration.leavingScreen
+    })
   },
-  'content-left': {
-    marginLeft: -drawerWidth,
+  "content-left": {
+    marginLeft: -drawerWidth
   },
-  'content-right': {
-    marginRight: -drawerWidth,
+  "content-right": {
+    marginRight: -drawerWidth
   },
   contentShift: {
-    transition: theme.transitions.create('margin', {
+    transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
+      duration: theme.transitions.duration.enteringScreen
+    })
   },
-  'contentShift-left': {
-    marginLeft: 0,
+  "contentShift-left": {
+    marginLeft: 0
   },
-  'contentShift-right': {
-    marginRight: 0,
-  },
+  "contentShift-right": {
+    marginRight: 0
+  }
 });
 
 class NavDrawer extends React.Component {
   state = {
     open: false,
-    anchor: 'left',
+    anchor: "left"
   };
 
   handleDrawerOpen = () => {
@@ -117,8 +110,6 @@ class NavDrawer extends React.Component {
     this.setState({ open: false });
   };
 
-  
-
   render() {
     const { classes } = this.props;
     const { anchor, open } = this.state;
@@ -128,35 +119,27 @@ class NavDrawer extends React.Component {
         variant="persistent"
         anchor={anchor}
         open={open}
-        
         classes={{
-          paper: classes.drawerPaper,
+          paper: classes.drawerPaper
         }}
       >
         <div className={classes.drawerHeader}>
           <IconButton onClick={this.handleDrawerClose}>
-             <ChevronLeftIcon />
+            <ChevronLeftIcon />
           </IconButton>
         </div>
-        
-        <List component="ul">
-          {this.props.navList}
-        </List>
-        
-        
+
+        <List component="ul">{this.props.navList}</List>
       </Drawer>
     );
 
-    
-
     return (
       <div className={classes.root}>
-        
         <div className={classes.appFrame}>
           <AppBar
             className={classNames(classes.appBar, {
               [classes.appBarShift]: open,
-              [classes[`appBarShift-${anchor}`]]: open,
+              [classes[`appBarShift-${anchor}`]]: open
             })}
           >
             <Toolbar disableGutters={!open}>
@@ -168,27 +151,38 @@ class NavDrawer extends React.Component {
               >
                 <MenuIcon />
               </IconButton>
-              <Typography variant="title" color="inherit" noWrap style={{flex: 1}}>
+              <Typography
+                variant="title"
+                color="inherit"
+                noWrap
+                style={{ flex: 1 }}
+              >
                 React Ultra Instinct
               </Typography>
-              <IconButton style={{marginRight: '15px'}}>
-               
-                  <a style={{color: 'white'}} href="https://camilo17.github.io/react-ultra-instinct/"><GitHubIcon/></a>
-                
-              </IconButton>  
+              <IconButton style={{ marginRight: "15px" }}>
+                <a
+                  style={{ color: "white" }}
+                  href="https://camilo17.github.io/react-ultra-instinct/"
+                >
+                  <GitHubIcon />
+                </a>
+              </IconButton>
             </Toolbar>
           </AppBar>
           {drawer}
           <main
-            className={classNames(classes.content, classes[`content-${anchor}`], {
-              [classes.contentShift]: open,
-              [classes[`contentShift-${anchor}`]]: open,
-            })}
+            className={classNames(
+              classes.content,
+              classes[`content-${anchor}`],
+              {
+                [classes.contentShift]: open,
+                [classes[`contentShift-${anchor}`]]: open
+              }
+            )}
           >
             <div className={classes.drawerHeader} />
             {this.props.children}
           </main>
-          
         </div>
       </div>
     );

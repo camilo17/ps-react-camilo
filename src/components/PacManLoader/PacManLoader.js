@@ -1,7 +1,6 @@
-import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import PropTypes from 'prop-types';
-
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import PropTypes from "prop-types";
 
 const matte = keyframes`
     0%, 49% {
@@ -20,7 +19,6 @@ const matte = keyframes`
 }
 `;
 
-
 const mover = keyframes`
     0%, 100% {
     left: 0;
@@ -34,8 +32,6 @@ const mover = keyframes`
 
 `;
 
-
-
 const topChomp = keyframes`
     0%, 100% {
     transform: rotate(0);
@@ -44,7 +40,7 @@ const topChomp = keyframes`
     transform: rotate(46deg);
   }
 
-`
+`;
 
 const bottomChomp = keyframes`
   0%, 100% {
@@ -53,7 +49,7 @@ const bottomChomp = keyframes`
   50% {
     transform: rotate(-46deg);
   }
-`
+`;
 
 const Track = styled.div`
     width: 300px;
@@ -79,15 +75,15 @@ const Track = styled.div`
 
 `;
 
-
 const Kurt = styled.div`
-    width: 0;
-    height: 0;
-    position: relative;
-    z-index:1;
-    animation: ${mover} 5s linear infinite;
+  width: 0;
+  height: 0;
+  position: relative;
+  z-index: 1;
+  animation: ${mover} 5s linear infinite;
 
-    &:before, &:after {
+  &:before,
+  &:after {
     content: "";
     display: block;
     position: absolute;
@@ -99,42 +95,29 @@ const Kurt = styled.div`
     border: 30px solid #f06;
     border-radius: 50%;
     border-right-color: transparent;
-    }
+  }
 
-    &:before {
+  &:before {
     animation: ${topChomp} 1s infinite;
-    }
-    &:after {
+  }
+  &:after {
     animation: ${bottomChomp} 1s infinite;
-    }
-    
-`
-
-
-
-
-
-
-
-
-
+  }
+`;
 
 class PacManLoader extends React.Component {
-
-
-    render() {
-        return (
-            <Track>
-                <Kurt/>
-            </Track>
-        )
-    }
+  render() {
+    return (
+      <Track>
+        <Kurt />
+      </Track>
+    );
+  }
 }
-
 
 PacManLoader.propTypes = {
   PacManColor: PropTypes.string.isRequired,
   trackColor: PropTypes.string.isRequired
-}
+};
 
 export default PacManLoader;

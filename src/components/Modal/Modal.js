@@ -27,6 +27,8 @@ const ModalContent = styled.div`
   border: 1px solid #888;
   width: 80%;
   position: absolute;
+  display: flex;
+  flex-direction: column;
 `;
 
 class ModalContainer extends React.Component {
@@ -46,7 +48,10 @@ class ModalContainer extends React.Component {
   }
   render() {
     return (
-      <ModalExample open={this.props.open}>{this.props.children}</ModalExample>
+      <ModalExample open={this.props.open}>
+        {" "}
+        {this.props.children}{" "}
+      </ModalExample>
     );
   }
 }
@@ -57,12 +62,18 @@ class Modal extends React.Component {
   };
 
   handleOpen = () => {
-    this.setState({ open: true });
+    this.setState({
+      open: true
+    });
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({
+      open: false
+    });
   };
+
+  static Header = props => <h1>{props.children}</h1>;
 
   render() {
     const triggerChild = React.Children.map(this.props.trigger, child => {
@@ -72,13 +83,13 @@ class Modal extends React.Component {
     });
     return (
       <div>
+        {" "}
         {this.state.open && (
           <ModalContainer open={this.state.open} handleClose={this.handleClose}>
-            <ModalContent id="content">Hello There</ModalContent>
+            <ModalContent id="content">{this.props.children}</ModalContent>{" "}
           </ModalContainer>
         )}
-
-        {triggerChild}
+        {triggerChild}{" "}
       </div>
     );
   }

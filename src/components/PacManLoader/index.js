@@ -1,3 +1,3 @@
-import PacManLoader from './PacManLoader';
+import PacManLoader from "./PacManLoader";
 
 export default PacManLoader;

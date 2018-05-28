@@ -1,23 +1,15 @@
-import React from 'react';
-import styled, {keyframes} from 'styled-components';
-import PropTypes from 'prop-types';
-
-
+import React from "react";
+import styled, { keyframes } from "styled-components";
+import PropTypes from "prop-types";
 
 function centerPseudoElement(size) {
-    var x = size.replace(/px/g, '');
-    x = parseInt(x, 10) / 2;
+  var x = size.replace(/px/g, "");
+  x = parseInt(x, 10) / 2;
 
-    var center = `-${x}px`
+  var center = `-${x}px`;
 
-    return center;
-
-
+  return center;
 }
-
-
-
-
 
 const pulseAnimation = keyframes`
     0% {
@@ -31,74 +23,63 @@ const pulseAnimation = keyframes`
 `;
 
 let Pulse = styled.div`
-    width: ${(props) => props.size? props.size : '100px'};
-    height: ${(props) => props.size? props.size : '100px'};
-    background: #eee;
-    border-radius: 50%;
-    position: relative;
-    margin: 50px;
-    display: inline-block;
-    
+  width: ${props => (props.size ? props.size : "100px")};
+  height: ${props => (props.size ? props.size : "100px")};
+  background: #eee;
+  border-radius: 50%;
+  position: relative;
+  margin: 50px;
+  display: inline-block;
 
-    &:after {
-    content: '';
+  &:after {
+    content: "";
     display: block;
-    width: ${(props) => props.size? props.size : '100px'};
-    height: ${(props) => props.size? props.size : '100px'};
+    width: ${props => (props.size ? props.size : "100px")};
+    height: ${props => (props.size ? props.size : "100px")};
     border-radius: 50%;
 
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: ${(props) => centerPseudoElement(props.size)};
-    margin-left: ${(props) => centerPseudoElement(props.size)};
-    background-color: ${(props) => props.bgColor ? props.bgColor : 'purple'};
+    margin-top: ${props => centerPseudoElement(props.size)};
+    margin-left: ${props => centerPseudoElement(props.size)};
+    background-color: ${props => (props.bgColor ? props.bgColor : "purple")};
     animation: ${pulseAnimation} 2s linear 2.3s infinite;
     opacity: 0;
+  }
 
-    }
-
-    &:before {
-    content: '';    
+  &:before {
+    content: "";
     display: block;
-    width: ${(props) => props.size? props.size : '100px'};
-    height: ${(props) => props.size? props.size : '100px'};
+    width: ${props => (props.size ? props.size : "100px")};
+    height: ${props => (props.size ? props.size : "100px")};
     border-radius: 50%;
     position: absolute;
 
     top: 50%;
     left: 50%;
-    margin-top: ${(props) => centerPseudoElement(props.size)};
-    margin-left: ${(props) => centerPseudoElement(props.size)};
-    background-color: ${(props) => props.bgColor ? props.bgColor : 'purple'};
+    margin-top: ${props => centerPseudoElement(props.size)};
+    margin-left: ${props => centerPseudoElement(props.size)};
+    background-color: ${props => (props.bgColor ? props.bgColor : "purple")};
     animation: ${pulseAnimation} 3s linear infinite;
     opacity: 0;
-    }
+  }
 `;
 
-
-
 class PulseLoader extends React.Component {
-    
-    render() {
-        return (
-            <Pulse {...this.props}/>
-        )
-    }
+  render() {
+    return <Pulse {...this.props} />;
+  }
 }
 
 PulseLoader.propTypes = {
-    bgColor: PropTypes.string,
-    size: PropTypes.string,
-    
-}
+  bgColor: PropTypes.string,
+  size: PropTypes.string
+};
 
 PulseLoader.defaultProps = {
-    bgColor: 'purple',
-    size: '100px'
-    
-
-}
-
+  bgColor: "purple",
+  size: "100px"
+};
 
 export default PulseLoader;

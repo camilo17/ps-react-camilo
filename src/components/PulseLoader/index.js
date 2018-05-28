@@ -1,3 +1,3 @@
-import PulseLoader from './PulseLoader';
+import PulseLoader from "./PulseLoader";
 
 export default PulseLoader;
