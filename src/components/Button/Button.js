@@ -8,7 +8,7 @@ const btnSizes = {
   sm: "100px",
   md: "120px",
   lg: "250px",
-  xlarge: "325px"
+  xlg: "450px"
 };
 
 const Btn = styled.button`
@@ -22,15 +22,13 @@ const Btn = styled.button`
   border-radius: 2px;
   padding: 7px 7px;
   color: white;
-  font-size: 17px;
+  font-size: auto;
   letter-spacing: .5px;
   font-weight: normal;
   box-shadow: 5px 5px 7px #808080;  
-  font-family: Arial, Helvetica, sans-serif
+  font-family: Helvetica, sans-serif
 
-  ${is("full")`
-    width: 100%
-    `}
+  
   
 }
 
@@ -44,7 +42,10 @@ const Btn = styled.button`
 
   &:active {
     box-shadow: 3px 2px 8px #808080;  
+    outline: none;
   }
+
+  
 
 
   &:disabled {
@@ -56,18 +57,8 @@ const Btn = styled.button`
 `;
 class Button extends React.Component {
   render() {
-    const { color, disabled, onClick, full, size } = this.props;
-    return (
-      <Btn
-        full={full}
-        disabled={disabled}
-        size={size}
-        onClick={onClick}
-        color={color}
-      >
-        {this.props.children}
-      </Btn>
-    );
+    const { children, ...otherProps } = this.props;
+    return <Btn {...otherProps}>{children}</Btn>;
   }
 }
 
@@ -80,7 +71,9 @@ Button.propTypes = {
   color: PropTypes.string,
   disabled: PropTypes.bool,
   type: PropTypes.oneOf(["submit, button"]),
-  size: PropTypes.oneOf(["sm", "md", "lg", "xlg"])
+  size: PropTypes.oneOf(["sm", "md", "lg", "xlg"]),
+  name: PropTypes.string,
+  accessibilityLabel: PropTypes.string
 };
 
 export default Button;
