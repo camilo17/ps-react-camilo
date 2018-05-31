@@ -9,6 +9,7 @@ export default () => {
         alt={"Skyline photo"}
         src={`https://cdn.pixabay.com/photo/2016/03/09/15/13/water-1246527_960_720.jpg`}
         width={"100%"}
+        caption="waves"
       />
       <Image
         alt={"Skyline photo"}
