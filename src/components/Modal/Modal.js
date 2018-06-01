@@ -25,7 +25,7 @@ const ModalContent = styled.div`
   margin: auto;
   padding: 15px 15px;
   border: 1px solid #888;
-  width: 80%;
+  width: auto;
   position: absolute;
   height: auto;
 `;
