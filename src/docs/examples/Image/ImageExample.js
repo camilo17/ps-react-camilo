@@ -6,16 +6,14 @@ export default () => {
   return (
     <Box direction={"row"} justifyContent="space-between">
       <Image
-        alt={"Skyline photo"}
-        src={`https://cdn.pixabay.com/photo/2016/03/09/15/13/water-1246527_960_720.jpg`}
-        width={"100%"}
-        caption="waves"
+        src={`https://picsum.photos/500/300/?random`}
+        caption="randomImage"
       />
       <Image
-        alt={"Skyline photo"}
-        src={`https://cdn.pixabay.com/photo/2018/01/27/23/46/waters-3112508_960_720.jpg`}
-        width={"100%"}
+        src={`https://picsum.photos/500/400/?random`}
+        caption="random Image"
       />
+      <Image src={`https://picsum.photos/500/400/?random`} />
     </Box>
   );
 };
