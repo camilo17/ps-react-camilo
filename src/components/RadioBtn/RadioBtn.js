@@ -50,8 +50,7 @@ const Radio = styled.input.attrs({
   }
 
   &:checked + ${Text}:after {
-    transform: scale(1);
-    transform: translate(50%, 50%);
+    transform: translate(50%, 50%) scale(1);
     transition: all 0.2s cubic-bezier(0.35, 0.9, 0.4, 0.9);
     opacity: 1;
   }
