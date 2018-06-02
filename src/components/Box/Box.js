@@ -4,6 +4,8 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const Flex = styled.div`
+  /* width: 100%;
+  height: 100%; */
   display: flex;
   flex-direction: ${props => props.direction};
   flex-wrap: ${props => props.wrap};
