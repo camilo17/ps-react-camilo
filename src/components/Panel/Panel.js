@@ -16,7 +16,7 @@ const SlideContent = styled.div`
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: rgba(142, 233, 232, 0.9);
+  background: ${props => props.slideColor};
   padding: 20px;
   color: white;
   box-sizing: border-box;
@@ -64,12 +64,19 @@ export default class Panel extends Component {
       top,
       bottom,
       content,
-      imageClass
+      imageClass,
+      slideColor
     } = this.props;
 
     return (
       <Slide>
-        <SlideContent right={right} left={left} top={top} bottom={bottom}>
+        <SlideContent
+          slideColor={slideColor}
+          right={right}
+          left={left}
+          top={top}
+          bottom={bottom}
+        >
           {content}
         </SlideContent>
         <SlideImage
@@ -83,10 +90,15 @@ export default class Panel extends Component {
   }
 }
 
+Panel.defaultProps = {
+  slideColor: "rgba(142, 233, 232, 0.9)"
+};
+
 Panel.propTypes = {
   src: PropTypes.string.isRequired,
   width: PropTypes.string,
   height: PropTypes.string,
   direction: PropTypes.oneOf(["right, left, top, bottom"]),
-  imageClass: PropTypes.string
+  imageClass: PropTypes.string,
+  slideColor: PropTypes.string
 };
